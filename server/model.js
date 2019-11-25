@@ -1,4 +1,3 @@
-/* CODE USING MYSQL
 const mysql = require('mysql');
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -31,7 +30,6 @@ module.exports = {
         });
     }
 }
-*/
 
 /* SEQUELIZE CODE
 const Sequelize = require('sequelize');
@@ -75,6 +73,7 @@ module.exports = {
     }
 }
 */
+/*
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/movielist')
 const db = mongoose.connection;
@@ -102,3 +101,4 @@ module.exports= {
         .catch(()=> callback('err', null))
     }
 }
+*/

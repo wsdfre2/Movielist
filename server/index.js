@@ -12,23 +12,18 @@ app.listen(port, () => console.log(`Listening in on port ${port}!`));
 
 app.use('/', express.static(path.join(__dirname, '../public/dist')));
 
-/* MYSQL
+
 app.get('/search', (req, res) => {
     Controller.getMovieData(req, res);
 })
 
 app.post('/search', (req, res) => {
     let search = req.body.search
-    Controller.getMovieApi(search, (err) => {
-        if (err) {
-            console.log('caught an error in post');
-            res.status(400).send();
-        }
-        res.status(201).send();
-    })
+    Controller.getMovieApi(search, res);
 })
-*/
+
 /* SEQUELIZE //MONGO */
+/*
 app.get('/search', (req, res) => {
     Controller.getMovieData(req, res);
 })
@@ -37,4 +32,4 @@ app.post('/search', (req, res) => {
     let search = req.body.search;
     Controller.getMovieApi(search, res)
 })
-
+*/

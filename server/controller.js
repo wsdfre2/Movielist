@@ -1,8 +1,8 @@
 const axios = require('axios');
 const Model = require('./model.js');
-/* MYSQL
+
 module.exports = {
-    getMovieApi: (search, callback) => {
+    getMovieApi: (search, res) => {
         axios.get(`https://api.themoviedb.org/3/search/movie?api_key=8e3d21e51df339dab9203326161f6796&language=en-US&query=${search}&page=1&include_adult=false`).
         then((data) => {
             const title = data.data.results[0].title;
@@ -14,7 +14,13 @@ module.exports = {
                 poster_path: poster_path
             }
             
-            Model.saveMovieData(newData, callback)
+            Model.saveMovieData(newData, (err) => {
+                if (err) {
+                    res.status(400).send();
+                } else {
+                    res.status(201).send();
+                }
+            })
         })
     },
 
@@ -28,7 +34,7 @@ module.exports = {
         })
     }
 }
-*/
+
 /* SEQUELIZE
 module.exports = {
     getMovieApi: (search, res) => {
@@ -63,6 +69,7 @@ module.exports = {
     }
 }
 */
+/* MONGODB CODE
 module.exports= {
     getMovieApi: (search, res) => {
         axios.get(`https://api.themoviedb.org/3/search/movie?api_key=8e3d21e51df339dab9203326161f6796&language=en-US&query=${search}&page=1&include_adult=false`)
@@ -95,3 +102,4 @@ module.exports= {
         })
     }
 }
+*/
