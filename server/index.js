@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express();
-const port = 3456;
+const port = 3411;
 const path = require('path');
 const Controller = require('./controller.js');
 const bodyParser = require('body-parser');
@@ -12,6 +12,7 @@ app.listen(port, () => console.log(`Listening in on port ${port}!`));
 
 app.use('/', express.static(path.join(__dirname, '../public/dist')));
 
+/* MYSQL
 app.get('/search', (req, res) => {
     Controller.getMovieData(req, res);
 })
@@ -26,3 +27,14 @@ app.post('/search', (req, res) => {
         res.status(201).send();
     })
 })
+*/
+/* SEQUELIZE //MONGO */
+app.get('/search', (req, res) => {
+    Controller.getMovieData(req, res);
+})
+
+app.post('/search', (req, res) => {
+    let search = req.body.search;
+    Controller.getMovieApi(search, res)
+})
+
